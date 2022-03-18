@@ -1,0 +1,53 @@
+--
+-- Database: `lannisterpay`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feeconfigs`
+--
+
+CREATE TABLE `feeconfigs` (
+  `id` int(11) NOT NULL,
+  `feeid` varchar(8) NOT NULL,
+  `fee_currency` char(3) NOT NULL,
+  `fee_locale` char(4) NOT NULL,
+  `fee_entity_property` varchar(30) NOT NULL,
+  `fee_type` varchar(15) NOT NULL,
+  `fee_value` varchar(6) NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `feeconfigs`
+--
+
+INSERT INTO `feeconfigs` (`id`, `feeid`, `fee_currency`, `fee_locale`, `fee_entity_property`, `fee_type`, `fee_value`, `createdAt`, `updatedAt`) VALUES
+(1, 'LNPY1221', 'NGN', '*', '*(*)', 'PERC', '1.4', '2022-03-16 21:21:38', '2022-03-16 21:21:38'),
+(2, 'LNPY1222', 'NGN', 'INTL', 'CREDIT-CARD(VISA)', 'PERC', '5.0', '2022-03-16 21:21:38', '2022-03-16 21:21:38'),
+(3, 'LNPY1223', 'NGN', 'LOCL', 'CREDIT-CARD(*)', 'FLAT_PERC', '50:1.4', '2022-03-16 21:21:38', '2022-03-16 21:21:38'),
+(4, 'LNPY1224', 'NGN', '*', 'BANK-ACCOUNT(*)', 'FLAT', '100', '2022-03-16 21:21:38', '2022-03-16 21:21:38'),
+(5, 'LNPY1225', 'NGN', '*', 'USSD(MTN)', 'PERC', '0.55', '2022-03-16 21:21:38', '2022-03-16 21:21:38');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `feeconfigs`
+--
+ALTER TABLE `feeconfigs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `feeid` (`feeid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `feeconfigs`
+--
+ALTER TABLE `feeconfigs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
